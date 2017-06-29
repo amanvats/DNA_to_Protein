@@ -25,7 +25,7 @@ SECRET_KEY = '0_6s0qy8ehx_4%&on5p@+e4_1zxb@768%t-&g7ng2(&vp%58!o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','dna2prot.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'dnatoprotein.pythonanywhere.com']
 
 
 # Application definition
