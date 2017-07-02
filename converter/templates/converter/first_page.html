@@ -1,16 +1,25 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <title>Convert DNA Sequence</title>
-</head>
-<body>
-<h1>ENTER DNA SEQUENCE</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Convert</button>
-    </form>
-</body>
+<html>
+	<head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/converter.css' %}">
+		<title>dna2protein</title>
+	</head>
+	<body>
+		<div class="key" id="about"><a href="#"/>Instructions to use</a></div>
+		<div class="key" id="how"><a href="#"/>How it Works</a></div>
+		<div id="line"></div>
+		<div id="form">
+            <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Convert</button>
+            </form>
+		</div>
+		<div id="footer">
+		<div id="footkey"><a href="#">Aman Vats Production</a></div>
+		</div>
+	</body>
 </html>
