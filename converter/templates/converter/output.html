@@ -1,10 +1,19 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Protein</title>
+    <title>Amino Acid Sequence</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
 <body>
+<div id="body">
+    <h1>Amino Acid Sequence</h1>
+    <div id="line"></div>
+    <div id="protein">
+        <p>The Amino acid sequence is:</p>
   {{prt}}
+    </div>
+</div>
 </body>
 </html>

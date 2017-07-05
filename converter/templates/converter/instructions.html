@@ -1,18 +1,26 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Instructions</title>
-</head>
-<body>
-<div id ="ins">
-    <ol>
-        <li>Enter DNA Sequence such that A should replace adenine, G for guanine , T for thymine and C for cytosine.</li>
-        <li>Do not enter any character other then A,T,G,C.</li>
-        <li>The sequence may contain spaces and enters.</li>
-        <li>If your sequence doesn't have start codon, you will not get amino acid.</li>
-    </ol>
-
-</div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Instructions</title>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/instructions.css' %}">
+	</head>
+	<body>
+		<div id="body">
+			<h1>Instructions</h1>
+			<div id="line"></div>
+			<div id ="ins">
+				<ol>
+					<li>Enter DNA Sequence such that A should replace adenine, G for guanine , T for thymine and C for cytosine.</li>
+					<p></p>
+					<li>Do not enter any character other then A,T,G,C.</li>
+					<p></p>
+					<li>The sequence may contain spaces and enters.</li>
+					<p></p>
+					<li>If your sequence doesn't have start codon, you will not get amino acid.</li>
+				</ol>
+			</div>
+		</div>
+	</body>
 </html>

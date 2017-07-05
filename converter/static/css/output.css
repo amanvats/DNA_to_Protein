@@ -1,0 +1,32 @@
+
+#body {
+	background-color:#ff3333;
+	position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+}
+#protein {
+margin-left:25em;
+margin-top:12em;
+color:White;
+font-family:sans-serif,Arial;
+}
+p {
+font-size:2em;
+font-weight:lighter;
+}
+h1 {
+color:White;
+font-family:sans-serif,Arial;
+font-weight:lighter;
+}
+#line {
+background-color:White;
+height:0.15em;
+}

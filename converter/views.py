@@ -1,7 +1,7 @@
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404, render_to_response
 from .forms import dnaForm
 from .models import dna
-
+from django.contrib import messages
 
 
 def first_page(request):
@@ -24,11 +24,16 @@ def how(request):
 #@render_to('converter:output.html')
 def final(request, pk):
     sequ = get_object_or_404(dna, pk=pk)
+
     seq = str(sequ)
     seq = seq.upper()
     seq = seq.replace("\n", "")
     seq = seq.replace("\r", "")
     seq = seq.replace(" ", "")
+    for i in range(0, len(seq), 1):
+        if seq[i]!='A' and seq[i]!='T' and seq[i]!='G' and seq[i]!='C':
+            prt = "Your sequence contains character other than A,T,G,C."
+            return render(request, 'converter/output.html', {'prt': prt})
 
     def translate(sequence):
 
@@ -68,4 +73,6 @@ def final(request, pk):
     start = seq.find('ATG')
     dnaa = seq[start:]
     prt = translate(dnaa)
+    if prt == " The END":
+        prt = "There is no start codon in the DNA sequence."
     return render(request, 'converter/output.html', {'prt': prt})
