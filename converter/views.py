@@ -20,13 +20,14 @@ def first_page(request):
 def final(request, pk):
     sequ = get_object_or_404(dna, pk=pk)
     seq = str(sequ)
+    seq = seq.upper()
     seq = seq.replace("\n", "")
     seq = seq.replace("\r", "")
     seq = seq.replace(" ", "")
 
     def translate(sequence):
 
-        sequence = sequence.upper()
+        #sequence = sequence.upper()
         table = {
             'ATA': 'Isoleucine', 'ATC': 'Isoleucine', 'ATT': 'Isoleucine', 'ATG': 'Methionine',
             'ACA': 'Threonine', 'ACC': 'Threonine', 'ACG': 'Threonine', 'ACT': 'Threonine',
@@ -46,14 +47,17 @@ def final(request, pk):
             'TGC': 'Cysteine', 'TGT': 'Cysteine', 'TGA': '_', 'TGG': 'Tryptophan',
         }
         protein = " "
-        if len(sequence) % 3 == 0:
-            for i in range(0, len(sequence), 3):
-                codon = sequence[i:i + 3]
-                if table[codon] == '_':
-                    return protein
-                protein += table[codon]
-                protein += '->'
-            protein += 'The END'
+        #if len(sequence) % 3 == 0:
+        for i in range(0, len(sequence), 3):
+            codon = sequence[i:i + 3]
+            if len(codon) < 3:
+                protein += 'The END'
+                return protein
+            if table[codon] == '_':
+                return protein
+            protein += table[codon]
+            protein += '->'
+        protein += 'The END'
         return protein
 
     start = seq.find('ATG')
