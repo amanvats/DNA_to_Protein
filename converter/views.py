@@ -15,6 +15,11 @@ def first_page(request):
         form = dnaForm()
     return render(request, 'converter/first_page.html', {'form': form})
 
+def instructions(request):
+    return render(request, 'converter/instructions.html', {})
+
+def how(request):
+    return render(request, 'converter/how.html', {})
 
 #@render_to('converter:output.html')
 def final(request, pk):

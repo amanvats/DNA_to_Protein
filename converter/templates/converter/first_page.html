@@ -6,17 +6,17 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/converter.css' %}">
 		<title>dna2protein</title>
 	</head>
 	<body>
-		<div class="key" id="about"><a href="#"/>Instructions to use</a></div>
-		<div class="key" id="how"><a href="#"/>How it Works</a></div>
-		<div id="line"></div>
+		<div class="key" id="about"><a href="{% url 'instructions' %}">Instructions to use</a></div>
+		<div class="key" id="how"><a href="{% url 'how' %}">How it Works</a></div>
 		<div id="form">
+		<div id="line">Enter the DNA sequence</div>
             <form method="POST" class="post-form">{% csrf_token %}
-                {{ form.as_p }}
+                {{ form }}
                 <button type="submit" class="save btn btn-default">Convert</button>
             </form>
 		</div>
