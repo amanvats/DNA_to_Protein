@@ -64,7 +64,9 @@ def final(request, pk):
                 protein += 'The END'
                 return protein
             if table[codon] == '_':
+                protein += 'The END'
                 return protein
+            protein += " "
             protein += table[codon]
             protein += '->'
         protein += 'The END'
