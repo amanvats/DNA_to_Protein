@@ -56,25 +56,25 @@ def final(request, pk):
             'TAC': 'Tyrosine', 'TAT': 'Tyrosine', 'TAA': '_', 'TAG': '_',
             'TGC': 'Cysteine', 'TGT': 'Cysteine', 'TGA': '_', 'TGG': 'Tryptophan',
         }
-        protein = " "
+        protein = "START->"
         #if len(sequence) % 3 == 0:
         for i in range(0, len(sequence), 3):
             codon = sequence[i:i + 3]
             if len(codon) < 3:
-                protein += 'The END'
+                protein += 'STOP'
                 return protein
             if table[codon] == '_':
-                protein += 'The END'
+                protein += 'STOP'
                 return protein
             protein += " "
             protein += table[codon]
             protein += '->'
-        protein += 'The END'
+        protein += 'STOP'
         return protein
 
     start = seq.find('ATG')
     dnaa = seq[start:]
     prt = translate(dnaa)
-    if prt == " The END":
+    if prt == "START->STOP":
         prt = "There is no start codon in the DNA sequence."
     return render(request, 'converter/output.html', {'prt': prt})
